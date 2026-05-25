@@ -1,3 +1,8 @@
+/* ── Desactivar animación de transición entre páginas ─── */
+.transition-plug {
+	display: none !important;
+}
+
 /* ── Formularios de contacto ──────────────────────────── */
 .modal__form {
 	display: flex;
@@ -52,7 +57,7 @@
 
 /* ── Hero About — imagen de fondo ────────────────────── */
 .hero-about {
-	background-image: url('../img/about-us/imgHeroAbous.png');
+	background-image: url('../img/about-us/imgHeroAbous.webp');
 	background-size: cover;
 	background-position: center;
 	background-repeat: no-repeat;
@@ -125,25 +130,25 @@ body:not(.home) .footer__logo-img {
 
 /* Hero Servicios — imágenes personalizadas */
 .hero-services__section-0 {
-	background-image: url(../img/services/imgHeroServicios.png);
+	background-image: url(../img/services/imgHeroServicios.webp);
 }
 .hero-services__section-1 .hero-services__image {
-	background-image: url(../img/services/imgService1.png);
+	background-image: url(../img/services/imgService1.webp);
 }
 .hero-services__section-2 .hero-services__image {
-	background-image: url(../img/services/imgService2.png);
+	background-image: url(../img/services/imgService2.webp);
 }
 .hero-services__section-3 .hero-services__image {
-	background-image: url(../img/services/imgService3.png);
+	background-image: url(../img/services/imgService3.webp);
 }
 .hero-services__section-4 .hero-services__image {
-	background-image: url(../img/services/imgService4.png);
+	background-image: url(../img/services/imgService4.webp);
 }
 .hero-services__section-5 .hero-services__image {
-	background-image: url(../img/services/imgService5.png);
+	background-image: url(../img/services/imgService5.webp);
 }
 .hero-services__section-6 .hero-services__image {
-	background-image: url(../img/services/imgService6.png);
+	background-image: url(../img/services/imgService6.webp);
 }
 
 /* Hero About — evitar corte en "FULFILLMENT" */
