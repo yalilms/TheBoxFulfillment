@@ -44,6 +44,27 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 
+/* ── Header glass al hacer scroll ─────────────────────────────────────────
+   El main.js añade/quita .active en .header__container para ocultar/mostrar
+   el header. Cuando vuelve a aparecer (sin .active) y no estamos en el top,
+   añadimos ._glass al <header> para el efecto cristal. */
+(function () {
+	document.addEventListener('DOMContentLoaded', function () {
+		var container = document.querySelector('.header__container');
+		var header    = document.querySelector('.header');
+		if (!container || !header) return;
+
+		function update() {
+			var isHidden  = container.classList.contains('active');
+			var isScrolled = window.scrollY > 80;
+			header.classList.toggle('_glass', !isHidden && isScrolled);
+		}
+
+		new MutationObserver(update).observe(container, { attributes: true, attributeFilter: ['class'] });
+		window.addEventListener('scroll', update, { passive: true });
+	});
+}());
+
 /* ── Botón "Arriba" — scroll directo al top (transition-plug desactivado) ──
    main.js ejecuta una animación de cortina de ~6s que no se ve porque
    .transition-plug tiene display:none en custom.css. Interceptamos el click

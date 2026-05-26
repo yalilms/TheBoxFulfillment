@@ -1,3 +1,84 @@
+/* ── Hero slider card — glass ─────────────────────────── */
+.hero-slider {
+	background: rgba(255, 255, 255, 0.12) !important;
+	-webkit-backdrop-filter: blur(24px) saturate(1.6);
+	backdrop-filter: blur(24px) saturate(1.6);
+	border: 1px solid rgba(255, 255, 255, 0.22);
+	box-shadow: 0 8px 40px rgba(0, 0, 0, 0.25);
+}
+.hero-slider__item {
+	background: transparent !important;
+}
+.hero-slider__counter,
+.hero-slider__counter-total,
+.hero-slider__title,
+.hero-slider__item-title {
+	color: #fff !important;
+}
+.hero-slider__progressbar {
+	background-color: rgba(255, 255, 255, 0.2) !important;
+}
+.hero-slider__progressbar .swiper-pagination-progressbar-fill {
+	background-color: #fff !important;
+}
+
+/* ── Header glass (sticky al volver a subir) ──────────── */
+.header._glass {
+	background: rgba(10, 10, 20, 0.55);
+	-webkit-backdrop-filter: blur(22px) saturate(1.4);
+	backdrop-filter: blur(22px) saturate(1.4);
+	border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+	transition: background 0.4s ease, backdrop-filter 0.4s ease;
+}
+
+/* ── Header — sin cuadritos, texto y logo en blanco ──── */
+.header__logo {
+	background-color: transparent;
+	border-radius: 0;
+	padding: 0;
+}
+.header__logo-img {
+	filter: brightness(0) invert(1);
+}
+.header__menu {
+	background-color: transparent;
+	border-radius: 0;
+	padding: 0;
+}
+.header__menu-item {
+	color: #fff;
+}
+.header__menu-item .text-hover__elem {
+	color: #fff;
+}
+.header__btn.btn {
+	background-color: transparent;
+	border-color: rgba(255, 255, 255, 0.5);
+	color: #fff;
+}
+.header__btn.btn:hover {
+	color: #fff;
+}
+.header__lang-heading.btn {
+	background-color: transparent;
+	border-color: transparent;
+	color: #fff;
+}
+.header__lang-heading .btn__inner {
+	color: #fff;
+}
+.header__lang-heading svg path {
+	fill: #fff !important;
+}
+.header__lang-dropdown {
+	background-color: rgba(20, 20, 20, 0.85);
+	backdrop-filter: blur(8px);
+}
+.header__lang-item,
+.header__lang-item .text-hover__elem {
+	color: #fff;
+}
+
 /* ── Desactivar animación de transición entre páginas ─── */
 .transition-plug {
 	display: none !important;
