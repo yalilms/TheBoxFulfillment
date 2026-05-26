@@ -106,17 +106,17 @@
 	border-color: rgba(255, 255, 255, 0.28) !important;
 }
 
-/* ── Logo en footer oscuro — subpáginas (blanco sobre negro) ── */
-body:not(.home) .footer__logo-img {
-	background: none;
-	border-radius: 0;
-	padding: 0;
+/* ── Logo en footer oscuro — todas las páginas (blanco sobre negro) ── */
+.footer__logo-img {
 	filter: brightness(0) invert(1);
 }
 
 /* ── Botón "Arriba" alineado al extremo derecho del footer ── */
 .footer__bottom-wrap {
 	justify-content: flex-end;
+}
+.footer__up-btn {
+	cursor: pointer;
 }
 
 /* ══════════════════════════════════════════════

@@ -43,49 +43,26 @@ document.addEventListener('DOMContentLoaded', function () {
 	if (mf && mm) handleContactForm(mf, mm);
 });
 
-/* ── Bypass 2500ms nav delay (transition-plug desactivado) ──────
-   main.js intercepta cada <a> y espera 2,5s antes de navegar.
-   Con la animación desactivada ese delay es innecesario.
-   Este listener añade navegación inmediata en el mismo ciclo de click. */
+
+/* ── Botón "Arriba" — scroll directo al top (transition-plug desactivado) ──
+   main.js ejecuta una animación de cortina de ~6s que no se ve porque
+   .transition-plug tiene display:none en custom.css. Interceptamos el click
+   en fase de captura para hacer el scroll de inmediato y sin bloquear el botón. */
 (function () {
-	document.querySelectorAll('a').forEach(function (link) {
-		if (link.hasAttribute('target')) return;
-		link.addEventListener('click', function () {
-			var href = link.getAttribute('href');
-			if (!href || href === '#' || href.startsWith('mailto:') || href.startsWith('tel:')) return;
-			window.location = href;
-		});
-	});
-})();
+	document.addEventListener('click', function (e) {
+		var btn = e.target.closest('[data-scroll-to]');
+		if (!btn) return;
+		e.preventDefault();
+		e.stopImmediatePropagation();
 
-/* ── Entrada instantánea para subpáginas (sin transition-plug) ── */
-(function () {
-	if (document.querySelector('.preloader')) return; // home: lo gestiona el preloader
+		var targetId = btn.dataset.scrollTo;
+		var el = document.getElementById(targetId);
+		if (!el) return;
 
-	// Ejecutar en load, después de que main.js haya corrido SplitText.
-	// Reemplazamos la animación de 2s por una versión rápida (0.4s).
-	window.addEventListener('load', function () {
-		if (document.querySelector('.main-animated-text')) {
-			gsap.killTweensOf('.main-animated-text .char');
-			gsap.to('.main-animated-text .char', {
-				ease: 'back', opacity: 1, scaleY: 1, yPercent: 0,
-				stagger: 0.01, duration: 0.4
-			});
-		}
-
-		if (document.querySelector('.main-animated-line')) {
-			gsap.killTweensOf('.main-animated-line');
-			gsap.to('.main-animated-line', { width: '100%', duration: 0.4 });
-		}
-
-		gsap.killTweensOf('.header');
-		gsap.set('.header', { translateY: '0%' });
-
-		if (document.querySelector('.main-opacity-block')) {
-			gsap.killTweensOf('.main-opacity-block');
-			gsap.set('.main-opacity-block', { opacity: 1 });
-		}
-	});
+		btn.disabled = true;
+		window.scrollTo({ top: 0, behavior: 'smooth' });
+		setTimeout(function () { btn.disabled = false; }, 800);
+	}, true); /* true = fase captura, se ejecuta antes que el handler de main.js */
 }());
 
 /* ── Filtro de categorías en la página de noticias ── */
