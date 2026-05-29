@@ -54,6 +54,12 @@
 			</a>
 
 			<nav class="header__menu" data-da=".header__hamburger, 1024, 0">
+				<a href="./" class="header__menu-item text-hover">
+					<span class="text-hover__inner">
+						<span class="text-hover__elem text-hover__elem-1">Inicio</span>
+						<span class="text-hover__elem text-hover__elem-2 _c-dark">Inicio</span>
+					</span>
+				</a>
 				<a href="./pages/about-us.html" class="header__menu-item text-hover">
 					<span class="text-hover__inner">
 						<span class="text-hover__elem text-hover__elem-1">Empresa</span>
@@ -72,12 +78,6 @@
 						<span class="text-hover__elem text-hover__elem-2 _c-dark">Noticias</span>
 					</span>
 				</a>
-				<a href="./pages/contact-us.html" class="header__menu-item text-hover">
-					<span class="text-hover__inner">
-						<span class="text-hover__elem text-hover__elem-1">Contacto</span>
-						<span class="text-hover__elem text-hover__elem-2 _c-dark">Contacto</span>
-					</span>
-				</a>
 			</nav>
 
 			<div class="header__actions">
@@ -86,13 +86,13 @@
 					<span class="is-active">Cerrar</span>
 				</button>
 
-				<button type="button" class="header__btn text-hover btn" aria-label="Abrir modal"
-					data-da=".header__hamburger, 1024, 1" data-contact-modal>
+				<a href="./pages/contact-us.html" class="header__btn text-hover btn"
+					data-da=".header__hamburger, 1024, 1">
 					<span class="btn__inner text-hover__inner">
 						<span class="text-hover__elem text-hover__elem-1">Empieza ahora</span>
 						<span class="text-hover__elem text-hover__elem-2">Empieza ahora</span>
 					</span>
-				</button>
+				</a>
 
 				<div class="header__lang dropdown">
 					<div class="header__lang-heading btn">
@@ -676,60 +676,7 @@
 		</div>
 	</div>
 
-	<!-- Modal: Formulario de contacto -->
-	<div class="modal hidden" id="modal-contact">
-		<p class="modal__title">Te respondemos en menos de 24h.</p>
-		<p class="modal__text">¡Nos encantará hablar contigo!</p>
-
-		<form class="modal__form" id="modal-contact-form" novalidate>
-			<label class="modal__form-item input">
-				<span class="modal__form-caption input__caption">
-					Nombre completo: <span class="_c-accent">*</span>
-				</span>
-				<input type="text" name="full_name" class="modal__form-input input__field" required maxlength="400" />
-			</label>
-
-			<label class="modal__form-item input">
-				<span class="modal__form-caption input__caption">
-					Teléfono: <span class="_c-accent">*</span>
-				</span>
-				<input type="tel" name="phone" class="modal__form-input input__field input-tel" required maxlength="400" />
-			</label>
-
-			<label class="modal__form-item input">
-				<span class="modal__form-caption input__caption">E-mail:</span>
-				<input type="email" name="email" class="modal__form-input input__field" maxlength="400" />
-			</label>
-
-			<div class="form-message" id="modal-form-message"></div>
-
-			<button type="submit" class="modal__form-submit text-hover btn _accent">
-				<span class="text-hover__inner">
-					<span class="text-hover__elem text-hover__elem-1">Enviar solicitud</span>
-					<span class="text-hover__elem text-hover__elem-2">Enviar solicitud</span>
-				</span>
-			</button>
-		</form>
-	</div>
-
-	<!-- Modal: Gracias -->
-	<div class="modal hidden" id="modal-thx">
-		<p class="modal__title">¡Gracias por contactar con nosotros!</p>
-		<p class="modal__text">
-			Te respondemos lo antes posible. Si es urgente, llámanos directamente:
-		</p>
-		<div class="modal__contact">
-			<a href="tel:+34600000001" class="modal__contact-item">
-				<img src="./assets/img/team/modal-photo-1.png" alt="Foto" class="modal__contact-img" />
-				<span class="modal__contact-wrapper">
-					<span class="modal__contact-heading">The Box Fulfillment</span>
-					<span class="modal__contact-text">+34 600 000 001</span>
-				</span>
-			</a>
-		</div>
-	</div>
-
-	<script src="./assets/js/main.js"></script>
+<script src="./assets/js/main.js"></script>
 	<script src="./assets/js/custom.js"></script>
 
 </body>

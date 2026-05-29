@@ -389,6 +389,14 @@
 	white-space: nowrap;
 }
 
+/* ── Services homepage: crossfade imagen panel izquierdo ── */
+.services__container-inner {
+	transition: opacity 0.25s ease;
+}
+.services__container-inner._img-changing {
+	opacity: 0.6;
+}
+
 /* Note — evitar que los chars de SplitText salten de línea al animar width */
 .note__head {
 	overflow: visible;

@@ -1,48 +1,3 @@
-/* ── Gestión de formularios de contacto ───────────────── */
-function handleContactForm(formEl, messageEl) {
-	formEl.addEventListener('submit', function (e) {
-		e.preventDefault();
-
-		var fields = formEl.querySelectorAll('[required]');
-		var valid = true;
-
-		fields.forEach(function (field) {
-			field.classList.remove('invalid');
-			if (!field.value.trim()) {
-				field.classList.add('invalid');
-				valid = false;
-			}
-		});
-
-		if (!valid) {
-			messageEl.className = 'form-message error';
-			messageEl.textContent = 'Por favor, rellena los campos obligatorios.';
-			return;
-		}
-
-		// TODO: conecta aquí con tu backend real, por ejemplo:
-		// fetch('/api/contact', { method: 'POST', body: new FormData(formEl) })
-
-		formEl.reset();
-		messageEl.className = 'form-message success';
-		messageEl.textContent = 'Enviando...';
-
-		// Dispara el evento que el tema usa para cerrar el modal
-		// y abrir el modal de confirmación (#modal-thx)
-		document.dispatchEvent(new Event('wpcf7mailsent'));
-	});
-}
-
-document.addEventListener('DOMContentLoaded', function () {
-	var cf = document.getElementById('contact-form');
-	var cm = document.getElementById('contact-form-message');
-	if (cf && cm) handleContactForm(cf, cm);
-
-	var mf = document.getElementById('modal-contact-form');
-	var mm = document.getElementById('modal-form-message');
-	if (mf && mm) handleContactForm(mf, mm);
-});
-
 
 /* ── Header glass al hacer scroll ─────────────────────────────────────────
    El main.js añade/quita .active en .header__container para ocultar/mostrar
@@ -128,3 +83,72 @@ document.addEventListener('DOMContentLoaded', function () {
 		item.style.minWidth = 'max-content';
 	});
 })();
+
+/* ── Services: imagen panel izquierdo sincronizada con las TARJETAS ──
+   La barra de progreso (.services__progressbar-fill) y las tarjetas son dos
+   animaciones GSAP independientes con distinto ease, así que el ancho de la
+   barra NO refleja fielmente dónde están las tarjetas. En vez de eso medimos
+   la posición real de cada tarjeta con getBoundingClientRect(): la foto cambia
+   a la tarjeta que de verdad domina el centro, sea cual sea el ease.
+   Usamos el MutationObserver sobre la barra solo como "tick" (GSAP la actualiza
+   en cada frame de la animación). */
+(function () {
+	document.addEventListener('DOMContentLoaded', function () {
+		var panel = document.querySelector('.services__container-inner');
+		var fill  = document.querySelector('.services__progressbar-fill');
+		var wrap  = document.querySelector('.services__items');
+		if (!panel || !fill || !wrap) return;
+
+		var cards = [];
+		for (var n = 1; n <= 6; n++) {
+			var c = wrap.querySelector('.services__item-' + n);
+			if (c) cards.push(c);
+		}
+		if (!cards.length) return;
+
+		var images = [
+			'./assets/img/services/imgService1.webp',
+			'./assets/img/services/imgService2.webp',
+			'./assets/img/services/imgService3.webp',
+			'./assets/img/services/imgService4.webp',
+			'./assets/img/services/imgService5.webp',
+			'./assets/img/services/imgService6.webp'
+		];
+		images.forEach(function (src) { new Image().src = src; });
+
+		/* SWITCH = fracción de altura de tarjeta que define cuándo se considera
+		   que la tarjeta entrante "domina" el centro y dispara el cambio de foto.
+		   0   = cambia cuando la tarjeta llega del todo al centro
+		   0.5 = cambia cuando está a media entrada (sensación de "a la vez")
+		   sube hacia 1 = cambia antes. Ajustable a gusto. */
+		var SWITCH  = 0.5;
+		var current = -1;
+
+		function onUpdate() {
+			var box     = wrap.getBoundingClientRect();
+			var centerY = box.top + box.height / 2;
+
+			/* Tarjeta visible = la de índice más alto cuyo centro ya ha subido
+			   hasta el centro del contenedor (dentro del margen SWITCH). */
+			var idx = 0;
+			for (var i = 0; i < cards.length; i++) {
+				var r = cards[i].getBoundingClientRect();
+				var cardCenterY = r.top + r.height / 2;
+				if (cardCenterY <= centerY + r.height * SWITCH) idx = i;
+			}
+
+			if (idx === current) return;
+			current = idx;
+			panel.classList.add('_img-changing');
+			panel.style.backgroundImage = 'url("' + images[idx] + '")';
+			setTimeout(function () { panel.classList.remove('_img-changing'); }, 250);
+		}
+
+		onUpdate();   /* estado inicial */
+
+		new MutationObserver(onUpdate).observe(fill, {
+			attributes: true,
+			attributeFilter: ['style']
+		});
+	});
+}());
