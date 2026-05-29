@@ -13,6 +13,7 @@
 			var isHidden  = container.classList.contains('active');
 			var isScrolled = window.scrollY > 80;
 			header.classList.toggle('_glass', !isHidden && isScrolled);
+			header.classList.toggle('_at-top', !isScrolled);
 		}
 
 		new MutationObserver(update).observe(container, { attributes: true, attributeFilter: ['class'] });

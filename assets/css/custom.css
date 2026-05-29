@@ -84,6 +84,15 @@
 	display: none !important;
 }
 
+/* ── Header oscuro en páginas blancas solo cuando está en el top ──────
+   custom.js añade ._at-top cuando scrollY <= 80 y lo quita en cuanto
+   el usuario baja, por lo que el fondo desaparece junto con el header. */
+.page-blog .header._at-top,
+.page-contacts .header._at-top,
+.page-privacy .header._at-top {
+	background-color: #1f1f61;
+}
+
 
 /* ── Formularios de contacto ──────────────────────────── */
 .modal__form {
