@@ -336,9 +336,9 @@
 										<p class="services__item-text">control de lotes, caducidades y stock en tiempo real.</p>
 									</div>
 								</div>
-								<a href="./pages/services.html" class="services__item-btn btn _accent" data-service="1">
+								<button type="button" class="services__item-btn btn _accent" data-fancybox data-src="#home-service-1">
 									<span class="btn__inner"></span>
-								</a>
+								</button>
 							</div>
 
 							<div class="services__item services__item-2 _accent">
@@ -349,9 +349,9 @@
 										<p class="services__item-text">personalización máxima en cada caja con tu branding.</p>
 									</div>
 								</div>
-								<a href="./pages/services.html" class="services__item-btn btn" data-service="2">
+								<button type="button" class="services__item-btn btn" data-fancybox data-src="#home-service-2">
 									<span class="btn__inner"></span>
-								</a>
+								</button>
 							</div>
 
 							<div class="services__item services__item-3">
@@ -362,9 +362,9 @@
 										<p class="services__item-text">24–48h en Península, incluidos fines de semana.</p>
 									</div>
 								</div>
-								<a href="./pages/services.html" class="services__item-btn btn _accent" data-service="3">
+								<button type="button" class="services__item-btn btn _accent" data-fancybox data-src="#home-service-3">
 									<span class="btn__inner"></span>
-								</a>
+								</button>
 							</div>
 
 							<div class="services__item services__item-4 _accent">
@@ -375,9 +375,9 @@
 										<p class="services__item-text">panel de control con visibilidad total de tu operación.</p>
 									</div>
 								</div>
-								<a href="./pages/services.html" class="services__item-btn btn" data-service="4">
+								<button type="button" class="services__item-btn btn" data-fancybox data-src="#home-service-4">
 									<span class="btn__inner"></span>
-								</a>
+								</button>
 							</div>
 
 							<div class="services__item services__item-5">
@@ -388,9 +388,9 @@
 										<p class="services__item-text">predicción de rotura de stock antes de que ocurra.</p>
 									</div>
 								</div>
-								<a href="./pages/services.html" class="services__item-btn btn _accent" data-service="5">
+								<button type="button" class="services__item-btn btn _accent" data-fancybox data-src="#home-service-5">
 									<span class="btn__inner"></span>
-								</a>
+								</button>
 							</div>
 
 							<div class="services__item services__item-6 _accent">
@@ -401,9 +401,9 @@
 										<p class="services__item-text">gestión completa de retornos sin complicaciones.</p>
 									</div>
 								</div>
-								<a href="./pages/services.html" class="services__item-btn btn" data-service="6">
+								<button type="button" class="services__item-btn btn" data-fancybox data-src="#home-service-6">
 									<span class="btn__inner"></span>
-								</a>
+								</button>
 							</div>
 						</div>
 					</div>
@@ -676,7 +676,122 @@
 		</div>
 	</div>
 
-<script src="./assets/js/main.js"></script>
+<!-- Modales de servicios (home) — abiertos por Fancybox desde los botones "+" -->
+	<div class="modal-services hidden" id="home-service-1">
+		<div class="modal-services__inner">
+			<h3 class="modal-services__title">Almacenamiento</h3>
+			<div class="modal-services__container">
+				<h4 class="modal-services__heading">Control de lotes y caducidades</h4>
+				<p class="modal-services__text">Cada SKU entra con número de lote y fecha de caducidad registrada. El sistema aplica FIFO automático para garantizar que siempre sale el producto más antiguo primero.</p>
+			</div>
+			<div class="modal-services__container">
+				<h4 class="modal-services__heading">Alertas proactivas</h4>
+				<ul class="modal-services__list">
+					<li class="modal-services__list-item">Alerta de caducidad próxima (configurable, p. ej. 90 días).</li>
+					<li class="modal-services__list-item">Alerta de stock mínimo por SKU.</li>
+					<li class="modal-services__list-item">Temperatura controlada y acceso restringido 24h.</li>
+				</ul>
+			</div>
+			<a href="./pages/services.html#service-1" class="modal-services__cta">Ver el servicio completo →</a>
+		</div>
+	</div>
+
+	<div class="modal-services hidden" id="home-service-2">
+		<div class="modal-services__inner">
+			<h3 class="modal-services__title">Pick &amp; Pack</h3>
+			<div class="modal-services__container">
+				<h4 class="modal-services__heading">Tu branding en cada caja</h4>
+				<p class="modal-services__text">Cada pedido sale con tu imagen de marca: caja personalizada, inserts, packaging premium y cualquier detalle que definas. El unboxing es parte de tu producto.</p>
+			</div>
+			<div class="modal-services__container">
+				<h4 class="modal-services__heading">Proceso de calidad</h4>
+				<ul class="modal-services__list">
+					<li class="modal-services__list-item">Picking por SKU con doble verificación.</li>
+					<li class="modal-services__list-item">Fotografía del envío antes de salida.</li>
+					<li class="modal-services__list-item">Capacidad para kits multiproduto y suscripciones.</li>
+				</ul>
+			</div>
+			<a href="./pages/services.html#service-2" class="modal-services__cta">Ver el servicio completo →</a>
+		</div>
+	</div>
+
+	<div class="modal-services hidden" id="home-service-3">
+		<div class="modal-services__inner">
+			<h3 class="modal-services__title">Envíos</h3>
+			<div class="modal-services__container">
+				<h4 class="modal-services__heading">24–48h en Península, mismo día en 50 km</h4>
+				<p class="modal-services__text">Pedidos confirmados antes de las 14h con destino a menos de 50 km de Pozuelo de Alarcón salen el mismo día — incluidos sábados y domingos.</p>
+			</div>
+			<div class="modal-services__container">
+				<h4 class="modal-services__heading">Transportistas integrados</h4>
+				<ul class="modal-services__list">
+					<li class="modal-services__list-item">DHL Express, UPS, Correos Express, MRW.</li>
+					<li class="modal-services__list-item">Cobertura nacional e internacional.</li>
+					<li class="modal-services__list-item">Tracking automático al cliente desde el panel ERP.</li>
+				</ul>
+			</div>
+			<a href="./pages/services.html#service-3" class="modal-services__cta">Ver el servicio completo →</a>
+		</div>
+	</div>
+
+	<div class="modal-services hidden" id="home-service-4">
+		<div class="modal-services__inner">
+			<h3 class="modal-services__title">ERP de gestión</h3>
+			<div class="modal-services__container">
+				<h4 class="modal-services__heading">Visibilidad total en un solo panel</h4>
+				<p class="modal-services__text">Accede en tiempo real a pedidos, stock, envíos activos y devoluciones desde tu panel web, sin depender de emails ni llamadas.</p>
+			</div>
+			<div class="modal-services__container">
+				<h4 class="modal-services__heading">Integración con tu plataforma</h4>
+				<ul class="modal-services__list">
+					<li class="modal-services__list-item">Shopify, WooCommerce y PrestaShop nativos.</li>
+					<li class="modal-services__list-item">Conexión via API con cualquier ERP o marketplace.</li>
+					<li class="modal-services__list-item">Sincronización de pedidos en tiempo real.</li>
+				</ul>
+			</div>
+			<a href="./pages/services.html#service-4" class="modal-services__cta">Ver el servicio completo →</a>
+		</div>
+	</div>
+
+	<div class="modal-services hidden" id="home-service-5">
+		<div class="modal-services__inner">
+			<h3 class="modal-services__title">IA de Stock predictiva</h3>
+			<div class="modal-services__container">
+				<h4 class="modal-services__heading">Anticípate a la rotura de stock</h4>
+				<p class="modal-services__text">Nuestro algoritmo analiza tu historial de ventas, estacionalidad y tendencias para predecir cuándo necesitarás reponer cada SKU — antes de que se agote.</p>
+			</div>
+			<div class="modal-services__container">
+				<h4 class="modal-services__heading">Alertas automáticas</h4>
+				<ul class="modal-services__list">
+					<li class="modal-services__list-item">Notificación días antes de llegar al mínimo.</li>
+					<li class="modal-services__list-item">Recomendación de cantidad óptima a reponer.</li>
+					<li class="modal-services__list-item">Sin configuración manual: aprende de tu operación.</li>
+				</ul>
+			</div>
+			<a href="./pages/services.html#service-5" class="modal-services__cta">Ver el servicio completo →</a>
+		</div>
+	</div>
+
+	<div class="modal-services hidden" id="home-service-6">
+		<div class="modal-services__inner">
+			<h3 class="modal-services__title">Devoluciones</h3>
+			<div class="modal-services__container">
+				<h4 class="modal-services__heading">Gestión completa de retornos</h4>
+				<p class="modal-services__text">Recibimos el producto devuelto, lo inspeccionamos, lo re-embalamos si está en condiciones y lo reintegramos al stock — todo registrado y trazable.</p>
+			</div>
+			<div class="modal-services__container">
+				<h4 class="modal-services__heading">Trazabilidad total</h4>
+				<ul class="modal-services__list">
+					<li class="modal-services__list-item">Panel de devoluciones en tiempo real.</li>
+					<li class="modal-services__list-item">Estado de cada unidad: apto, dañado, destruido.</li>
+					<li class="modal-services__list-item">Informes de tasa de devolución por SKU.</li>
+				</ul>
+			</div>
+			<a href="./pages/services.html#service-6" class="modal-services__cta">Ver el servicio completo →</a>
+		</div>
+	</div>
+
+	<script src="./assets/js/main.js"></script>
 	<script src="./assets/js/custom.js"></script>
 
 </body>

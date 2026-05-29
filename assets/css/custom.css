@@ -366,22 +366,44 @@
 	background-image: url(../img/services/imgHeroServicios.webp);
 }
 .hero-services__section-1 .hero-services__image {
-	background-image: url(../img/services/imgService1.webp);
+	background-image: url(../img/img2.png);
 }
 .hero-services__section-2 .hero-services__image {
-	background-image: url(../img/services/imgService2.webp);
+	background-image: url(../img/img5.png);
+	background-position: top center;
 }
 .hero-services__section-3 .hero-services__image {
-	background-image: url(../img/services/imgService3.webp);
+	background-image: url(../img/img3.png);
 }
 .hero-services__section-4 .hero-services__image {
-	background-image: url(../img/services/imgService4.webp);
+	background-image: url(../img/img4.png);
 }
 .hero-services__section-5 .hero-services__image {
-	background-image: url(../img/services/imgService5.webp);
+	background-image: url(../img/img10.png);
 }
 .hero-services__section-6 .hero-services__image {
-	background-image: url(../img/services/imgService6.webp);
+	background-image: url(../img/img1.png);
+}
+
+/* ── Botón CTA en modales de servicio (fondo oscuro #1f1f61) ── */
+.modal-services__cta {
+	display: inline-block;
+	margin-top: 50rem;
+	padding: 16rem 36rem;
+	background: #fff;
+	color: #1f1f61 !important;
+	font-size: 13rem;
+	font-weight: 700;
+	text-transform: uppercase;
+	letter-spacing: 0.08em;
+	border-radius: 6rem;
+	border: 2rem solid #fff;
+	text-decoration: none;
+	transition: background 0.25s, color 0.25s;
+}
+.modal-services__cta:hover {
+	background: transparent;
+	color: #fff !important;
 }
 
 /* Hero About — evitar corte en "FULFILLMENT" */
@@ -392,6 +414,7 @@
 /* ── Services homepage: crossfade imagen panel izquierdo ── */
 .services__container-inner {
 	transition: opacity 0.25s ease;
+	background-position: center;
 }
 .services__container-inner._img-changing {
 	opacity: 0.6;

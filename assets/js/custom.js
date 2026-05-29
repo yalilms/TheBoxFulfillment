@@ -107,12 +107,21 @@
 		if (!cards.length) return;
 
 		var images = [
-			'./assets/img/services/imgService1.webp',
-			'./assets/img/services/imgService2.webp',
-			'./assets/img/services/imgService3.webp',
-			'./assets/img/services/imgService4.webp',
-			'./assets/img/services/imgService5.webp',
-			'./assets/img/services/imgService6.webp'
+			'./assets/img/img2.png',
+			'./assets/img/img5.png',
+			'./assets/img/img3.png',
+			'./assets/img/img4.png',
+			'./assets/img/img10.png',
+			'./assets/img/img1.png'
+		];
+		/* Posición del recorte por imagen — ajustar aquí si una foto queda mal encuadrada */
+		var positions = [
+			'center',
+			'top center',
+			'center',
+			'center',
+			'center',
+			'center'
 		];
 		images.forEach(function (src) { new Image().src = src; });
 
@@ -141,6 +150,7 @@
 			current = idx;
 			panel.classList.add('_img-changing');
 			panel.style.backgroundImage = 'url("' + images[idx] + '")';
+			panel.style.backgroundPosition = positions[idx];
 			setTimeout(function () { panel.classList.remove('_img-changing'); }, 250);
 		}
 
